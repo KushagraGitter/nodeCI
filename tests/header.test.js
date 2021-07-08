@@ -1,12 +1,13 @@
 const puppeteer = require("puppeteer");
-const sessionFactory = require("./factories/sessionFactory");
-const userFactory = require("./factories/userFactory");
+// const sessionFactory = require("./factories/sessionFactory");
+// const userFactory = require("./factories/userFactory");
 
 let browser, page;
 
 beforeEach(async () => {
   browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
+    args: ["--no-sandbox"],
   });
   page = await browser.newPage();
   await page.goto("http://localhost:3000");
